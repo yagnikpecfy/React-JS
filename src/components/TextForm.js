@@ -2,6 +2,9 @@ import React,{useState} from 'react'
 
 
 export default function TextForm(props) {
+  const [text, setText] = useState('Enter Some Text Here');
+  const [searchText, setSearchText] = useState('Search Here');
+
   const handleUpClick=()=>{
       //console.log("Uppercash Clicked ..  " + text.toUpperCase() )
       setText(text.toUpperCase())
@@ -9,8 +12,17 @@ export default function TextForm(props) {
 
    const handleLowClick=()=>{
       //console.log("Uppercash Clicked ..  " + text.toUpperCase() )
-      setText(text.toUpperCase())
+      setText(text.toLowerCase())
   }
+
+   const handleClearClick=()=>{
+      setText('')
+      
+  }
+
+  const handleSearchText=()=>{
+    console.log(text.indexOf(searchText))
+}
 
 
   const handleOnChange=(event)=>{
@@ -18,7 +30,10 @@ export default function TextForm(props) {
       setText(event.target.value)
   }
 
-  const [text, setText] = useState('Enter Some Text Here');
+  const handleOnChangeSearch=(event)=>{
+     setSearchText(event.target.value)
+ }
+
 
   return (
     <>
@@ -31,8 +46,13 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-outline-success mx-2" onClick={handleUpClick} type="submit">Upper</button>
         <button className="btn btn-outline-success mx-2" onClick={handleLowClick} type="submit">Lower</button>
-        <button type="button" className="btn btn-primary">Primary</button>
+        <button type="button" className="btn btn-primary" onClick={handleClearClick}>Clear</button>
+        <div>
+        <input type="search" value={searchText} onChange={handleOnChangeSearch} placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success my-2 mx-2" onClick={handleSearchText} type="submit">Search</button>
 
+        </div>
+     
     </div>
     <div className="container my-3" >
       <h2>Enter Your Text</h2>
