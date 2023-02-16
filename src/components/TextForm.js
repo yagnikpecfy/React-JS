@@ -38,7 +38,7 @@ export default function TextForm(props) {
   return (
     <>
     
-    <div className='container'>
+    <div className='container' style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
       <h1>{props.heading}</h1>
         <div className="mb-3">
             <label htmlFor="myBox" className="form-label">Example textarea</label>
@@ -54,7 +54,7 @@ export default function TextForm(props) {
         </div>
      
     </div>
-    <div className="container my-3" >
+    <div className="container my-3"  style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
       <h2>Enter Your Text</h2>
       <p>{text.split(" ").length} words and  {text.length} Characters </p>
       <p>{0.008 * text.split(" ").length} minutes to read</p>
