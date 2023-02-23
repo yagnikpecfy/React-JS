@@ -44,8 +44,8 @@ export default function TextForm(props) {
             <label htmlFor="myBox" className="form-label">Example textarea</label>
             <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="5"></textarea>
         </div>
-        <button className="btn btn-outline-success mx-2" onClick={handleUpClick} type="submit">Upper</button>
-        <button className="btn btn-outline-success mx-2" onClick={handleLowClick} type="submit">Lower</button>
+        <button  type="button" className="btn btn-primary" onClick={handleUpClick}>Upper</button>
+        <button type="button" className="btn btn-primary mx-2" onClick={handleLowClick}>Lower</button>
         <button type="button" className="btn btn-primary" onClick={handleClearClick}>Clear</button>
         <div>
         <input type="search" value={searchText} onChange={handleOnChangeSearch} placeholder="Search" aria-label="Search"/>

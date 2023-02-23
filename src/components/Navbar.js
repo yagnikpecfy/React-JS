@@ -1,21 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar(props) {
-  // const [mode,setMode] =useState('Light')
-  
-  // const handleChangeMode =()=>{
-  //   // setMode(mode==='light' ? setMode('dark') : setMode('light'))
-  //   //     console.log("On Change  Clicked ..  "  + mode)
-  //   if(mode==='Light'){
-  //     setMode('Dark')
-  //     console.log("On Change  Clicked ..  "  + mode)
-  //   }
-  //   else{
-  //     setMode('Light')
-  //     console.log("On Change  Clicked ..  "  + mode + " else part")
-  //   }
+
+  // const handleClick=(e)=>{
+  //   console.log(e.target.value)
   // }
 
   return (
@@ -28,26 +19,18 @@ export default function Navbar(props) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Home</a>
+          <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">{props.aboutUs}</a>
+          <Link className="nav-link" to="/about">{props.aboutUs}</Link>
         </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">Action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="/">Something else here</a></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" href='/'>Disabled</a>
-        </li>
+       
+      
       </ul>
+
+        <button type="button" value={"red"} onClick={props.colorMode} className="btn btn-danger">Red</button>
+        {/* <button type="button" value={"yellow"} onClick={props.colorMode} className="btn btn-warning">Yellow</button>
+        <button type="button" value={"green"} onClick={props.colorMode} className="btn btn-success">Green</button> */}
 
       <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
         <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
