@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 
 export default function TextForm(props) {
   const [text, setText] = useState('Enter Some Text Here');
-  const [searchText, setSearchText] = useState('Search Here');
+ // const [searchText, setSearchText] = useState('Search Here');
 
   const handleUpClick=()=>{
       //console.log("Uppercash Clicked ..  " + text.toUpperCase() )
@@ -20,9 +20,9 @@ export default function TextForm(props) {
       
   }
 
-  const handleSearchText=()=>{
-    console.log(text.indexOf(searchText))
-}
+//   const handleSearchText=()=>{
+//     console.log(text.indexOf(searchText))
+// }
 
 
   const handleOnChange=(event)=>{
@@ -30,9 +30,9 @@ export default function TextForm(props) {
       setText(event.target.value)
   }
 
-  const handleOnChangeSearch=(event)=>{
-     setSearchText(event.target.value)
- }
+//   const handleOnChangeSearch=(event)=>{
+//      setSearchText(event.target.value)
+//  }
 
 
   return (
@@ -48,15 +48,15 @@ export default function TextForm(props) {
         <button type="button" className="btn btn-primary mx-2" onClick={handleLowClick}>Lower</button>
         <button type="button" className="btn btn-primary" onClick={handleClearClick}>Clear</button>
         <div>
-        <input type="search" value={searchText} onChange={handleOnChangeSearch} placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success my-2 mx-2" onClick={handleSearchText} type="submit">Search</button>
+        {/* <input type="search" value={searchText} onChange={handleOnChangeSearch} placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success my-2 mx-2" onClick={handleSearchText} type="submit">Search</button> */}
 
         </div>
      
     </div>
     <div className="container my-3"  style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
       <h2>Enter Your Text</h2>
-      <p>{text.split(" ").length} words and  {text.length} Characters </p>
+      <p>{text.split(" ").filter((elements)=>{return elements.length !== 0}).length} words and  {text.length} Characters </p>
       <p>{0.008 * text.split(" ").length} minutes to read</p>
       <p>Preview</p>
       <p>{text}</p>

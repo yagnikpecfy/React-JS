@@ -27,21 +27,20 @@ export default function Navbar(props) {
        
       
       </ul>
+        <div className="d-flex">
+          {/* <div className="bg-promary rounded mx-2" style={{heoght:'30px',width:'30px'}}></div> */}
+          <button type="button" value={"red"} onClick={()=>props.toggleMode('danger')} className="btn btn-danger mx-1" style={{height:'30px',width:'30px'}}></button>
+          <button type="button" value={"green"} onClick={()=>props.toggleMode('success')} className="btn btn-success mx-1" style={{height:'30px',width:'30px'}}></button>
+          <button type="button" value={"yellow"} onClick={()=>{props.toggleMode('warning')}} className="btn btn-warning mx-1" style={{height:'30px',width:'30px'}}></button>
+          <button type="button" value={"primary"} onClick={()=>{props.toggleMode('primary')}} className="btn btn-primary mx-1" style={{height:'30px',width:'30px'}}></button>
 
-        <button type="button" value={"red"} onClick={props.colorMode} className="btn btn-danger">Red</button>
-        {/* <button type="button" value={"yellow"} onClick={props.colorMode} className="btn btn-warning">Yellow</button>
-        <button type="button" value={"green"} onClick={props.colorMode} className="btn btn-success">Green</button> */}
-
+        </div>
+        {/* <button type="button" value={"red"} onClick={props.colorMode} className="btn btn-danger">Red</button> */}
+      
       <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
         <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-        <label className="form-check-label"  htmlFor="flexSwitchCheckDefault">Enebled Dark Mode</label>
+        <label className="form-check-label"  htmlFor="flexSwitchCheckDefault">Toggle Mode</label>
       </div>
-
-     
-      {/* <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form> */}
     </div>
   </div>
 </nav>   

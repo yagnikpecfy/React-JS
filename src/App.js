@@ -6,9 +6,9 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
-  Switch,
+  //Switch,
   Route,
-  Link,
+  //Link,
   Routes
 } from "react-router-dom";
 
@@ -26,20 +26,36 @@ function App() {
     }, 1500);
   }
 
-  const colorMode =()=>{
+  const removeBodyClasses=()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-primary')
 
+  }
+
+  const colorMode =()=>{
     if(mode!=='red'){
       setMode('red');
       document.body.style.backgroundColor='red';
       showAlert("red mode");
-    }else{
+    }else if(mode!=='green'){
       setMode('green')
       document.body.style.backgroundColor='green'
+      showAlert("Green mode");
+    } else{
+      setMode('black')
+      document.body.style.backgroundColor='black'
       showAlert("Green mode");
     }
   }
 
-  const toggleMode =()=>{
+  const toggleMode =(cls)=>{
+    console.log(cls)
+    removeBodyClasses();
+    document.body.classList.add('bg-'+cls)
 
     if(mode==='light'){
       setMode('dark');
